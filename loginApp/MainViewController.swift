@@ -75,7 +75,6 @@ final class MainViewController: UIViewController {
     private func showAlert(withTitle title: String, andMessage message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.userNameTextField.text = ""
             self.passwordTextField.text = ""
         }
         alert.addAction(okAction)
