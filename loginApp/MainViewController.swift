@@ -44,6 +44,11 @@ final class MainViewController: UIViewController {
         welcomeViewController?.gradientWelcomeView.locations = [0.0, 1.0]
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (userNameTextField.text == userName) && (passwordTextField.text == password) {
             return true
@@ -53,12 +58,13 @@ final class MainViewController: UIViewController {
         return false
     }
     
+    
     @IBAction func pressedFUNButton() {
-        showAlert(withTitle: "Oops!", andMessage: "Your name is Ann 😉")
+        showAlert(withTitle: "Oops!", andMessage: "Your name is \(userName) 😉")
     }
     
     @IBAction func pressedFPButton() {
-        showAlert(withTitle: "Oops!", andMessage: "Your password is 11 😉")
+        showAlert(withTitle: "Oops!", andMessage: "Your password is \(password) 😉")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
